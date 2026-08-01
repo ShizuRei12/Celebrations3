@@ -302,9 +302,16 @@
   }
 
   #stage.gone #lantern{
-    opacity: 0;
-    transform: translate(-50%, -220vh) scale(0.35) translateX(var(--sway, 40px));
-    transition: transform 6.5s cubic-bezier(.25,.1,.3,1), opacity 6.5s ease-in;
+    animation: lantern-rise 6.5s cubic-bezier(.25,.1,.3,1) forwards;
+  }
+
+  @keyframes lantern-rise{
+    0%{   transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
+    15%{  transform: translate(calc(-50% + 22px), -58vh) scale(0.88) rotate(3deg); opacity: 1; }
+    35%{  transform: translate(calc(-50% - 26px), -108vh) scale(0.72) rotate(-4deg); opacity: 0.95; }
+    55%{  transform: translate(calc(-50% + 18px), -150vh) scale(0.58) rotate(3deg); opacity: 0.8; }
+    75%{  transform: translate(calc(-50% - 14px), -186vh) scale(0.46) rotate(-2deg); opacity: 0.55; }
+    100%{ transform: translate(calc(-50% + 30px), -220vh) scale(0.35) rotate(2deg); opacity: 0; }
   }
 
   .lantern-flame{
@@ -460,7 +467,7 @@
     <span class="mute-slash"></span>
   </button>
 
-  <audio id="bg-music" src="https://raw.githubusercontent.com/ShizuRei12/Celebrations3/main/Julie%20Anne%20San%20Jose%20-%20I'll%20Be%20There.mp3" loop preload="auto"></audio>
+  <audio id="bg-music" src="https://raw.githubusercontent.com/ShizuRei12/Celebrations3/main/Julie%20Anne%20San%20Jose%20-%20I%27ll%20Be%20There.mp3" loop preload="auto"></audio>
 
   <div id="envelope-wrap" role="button" tabindex="0" aria-label="Open the letter">
     <div class="env-body"></div>
